@@ -2,7 +2,7 @@ import time
 import logging
 import sys
 import argparse
-from argparse import RawTextHelpFormatter
+from argparse import RawTextHelpFormatter, Namespace
 import operator
 import csv
 from flask import Flask, request, render_template, abort, Response
@@ -146,10 +146,10 @@ def build_nx_digraph(reconstructed_network):
     print('Number of edges = ' + str(len(G.edges())))
     return G
 
-def main():
-# def main(args):
-    # args = parser.parse_args(args)
-    args = parser.parse_args()
+# def main():
+def main(args):
+    print(args)
+    # args = parser.parse_args()
 
     if (args.md == None):
         print('please specify the maximum depth of exploration -md (--max_depth), 0 means complete exploration, 1 means '
@@ -318,4 +318,7 @@ if __name__ == "__main__":
     # args = ['--input_genes', 'JUN/FOS', 'SCN5A', '-md', '1',
     #        '-incl', 'pid', 'msigdb']
     # main(args = args)
-    main()
+
+
+    args = parser.parse_args()
+    main(args)

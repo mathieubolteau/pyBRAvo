@@ -16,7 +16,10 @@ from IPython.display import display, Markdown, Latex
 from rdflib import Graph, RDF, RDFS, Namespace
 
 #fullpath = os.path.abspath(os.path.dirname(sys.argv[0])) + '/'
-fullpath = os.getcwd()
+# fullpath = os.getcwd()
+fullpath = os.path.dirname(os.path.abspath(__file__))
+print(fullpath)
+fullpath = '/'.join(fullpath.split('/')[:-1])
 
 def init_gene_synonyms_cache():
     """
@@ -25,7 +28,8 @@ def init_gene_synonyms_cache():
     """
     index_syn = {}
     index_std = {}
-    with open(fullpath + '/Homo_sapiens.gene_info', newline='') as csvfile:
+    # with open(fullpath + '/Homo_sapiens.gene_info', newline='') as csvfile:
+    with open('/home/e21g017n/Nextcloud/work/gitlab_repos/pipeline/pipeline/pyBRAvo/src/bravo/Homo_sapiens.gene_info', newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter='\t')
         next(reader)   # Skip first line
         for row in reader:
@@ -212,9 +216,9 @@ def gen_small_mol_filter(skip_small_molecules = True, networktype="regulation"):
     """
     if skip_small_molecules:
         if networktype=="regulation":
-            return 'FILTER( str(?controllerType) != "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule" and str(?controlledType) != "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule")  .'
+            return 'FILTER( str(?controllerType) != "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule" && str(?controlledType) != "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule")  .'
         else:
-            return 'FILTER( str(?controllerType) != "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule" and str(?rightType) != "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule")  .'
+            return 'FILTER( str(?controllerType) != "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule" && str(?rightType) != "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule")  .'
 
     else:
         return ''
