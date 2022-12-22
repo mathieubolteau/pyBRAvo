@@ -13,3 +13,7 @@ pypath-evaluation/.*
 out-*
 out.sif
 tutorial-*
+
+
+build/
+__pycache__/
