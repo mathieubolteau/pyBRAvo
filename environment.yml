@@ -13,3 +13,4 @@ dependencies:
   - networkx
   - flask
   - nose2
+  - pkg_resources

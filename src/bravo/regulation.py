@@ -236,7 +236,6 @@ def upstream_regulation(to_be_explored, already_explored = [], sif_network = [],
         logging.debug("======= PathwayCommons v9 query =======")
         logging.debug(q)
         logging.debug("=====================")
-        print(q)
 
         sparql = SPARQLWrapper(config.SPARQL_ENDPOINT)
         sparql.setQuery(q)

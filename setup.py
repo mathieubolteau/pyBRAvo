@@ -6,5 +6,8 @@ setup(name='pyBravo',
               'pybravo=pyBRAvo.src.pyBRAvo:main',
           ]
       },
-      include_package_data=True
+      include_package_data=True,
+      package_data={
+      'pyBRAvo': ['src/bravo/*.gene_info'],
+   }
 )
