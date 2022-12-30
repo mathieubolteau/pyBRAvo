@@ -8,6 +8,6 @@ setup(name='pyBravo',
       },
       include_package_data=True,
       package_data={
-      'pyBRAvo': ['src/bravo/*.gene_info'],
+      'bravo': ['*.gene_info'],
    }
 )
