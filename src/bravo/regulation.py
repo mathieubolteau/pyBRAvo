@@ -5,8 +5,8 @@ from flask import Flask, request, render_template, abort, Response
 
 import logging
 
-import bravo.util as util
-import bravo.config as config
+from . import util
+from . import config
 
 app = Flask("pyBravo")
 

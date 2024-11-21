@@ -4,8 +4,8 @@ from urllib import error
 import time
 import logging
 
-import bravo.util as util
-import bravo.config as config
+from . import util
+from . import config
 
 
 tpl_select_signaling_query = """

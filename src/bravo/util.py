@@ -11,7 +11,7 @@ import io
 import time
 import csv
 
-import bravo.config as config
+from . import config
 from IPython.display import display, Markdown, Latex
 from rdflib import Graph, RDF, RDFS, Namespace
 import pkg_resources

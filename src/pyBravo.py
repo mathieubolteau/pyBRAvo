@@ -7,10 +7,13 @@ import operator
 import csv
 from flask import Flask, request, render_template, abort, Response
 import networkx as nx
-from bravo.regulation import upstream_regulation
-from bravo.signaling import upstream_signaling
-import bravo.config as config
-import bravo.util as util
+
+from .bravo.regulation import upstream_regulation
+from .bravo.signaling import upstream_signaling
+# import bravo.config as config
+from .bravo import util
+
+from .bravo import config
 
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s: %(message)s', stream=sys.stdout)
